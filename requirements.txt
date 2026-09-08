@@ -1,0 +1,13 @@
+# Direct dependencies pinned from the locally tested environment, 2026-09-07.
+# Python 3.10; observed torch build: 2.6.0+cu124 (Linux).
+# Not a complete transitive lockfile or a clean-install certification.
+# Select the appropriate PyTorch CUDA wheel for your platform separately.
+torch==2.6.0
+transformers==5.12.1
+tokenizers==0.22.2
+accelerate==1.14.0
+pytorch-crf==0.7.2
+numpy==2.2.6
+safetensors==0.8.0
+sentencepiece==0.2.1
+protobuf==7.35.1

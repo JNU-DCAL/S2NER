@@ -1,13 +1,9 @@
 # S2NER
 
-Historical Chinese Named Entity Recognition baseline using **BIO tagging + CRF**.
+**S2NER**은 **조선왕조실록(Joseon Wangjo Sillok)**과 **승정원일기(Seungjeongwon Ilgi)**를 대상으로 한 고전 한문 문자 단위 개체명 인식(NER) baseline입니다.
 
 * Entity types: `PER`, `LOC`, `BOOK`
-* Backbones:
 
-  * `ddokbaro/SillokBert`
-  * `KoichiYasuoka/roberta-classical-chinese-base-char`
-  * `SIKU-BERT/sikuroberta`
 
 ## 📁 Structure
 
@@ -51,8 +47,8 @@ S2NER/
 git clone https://github.com/JNU-DCAL/S2NER.git
 cd S2NER
 
-python -m venv .venv
-source .venv/bin/activate
+python -m venv S2NER
+source S2NER/bin/activate
 pip install -r requirements.txt
 ```
 
@@ -70,18 +66,5 @@ Sillok_dev.jsonl
 SJW_test.jsonl
 ```
 
-
 각 JSONL line은 하나의 paragraph이며 character-level BIO annotation을 포함합니다.
-
-
-기본 설정:
-
-| Setting        |       Value |
-| -------------- | ----------: |
-| Epochs         |           4 |
-| Learning rate  |      `6e-5` |
-| Train batch    | `128 / GPU` |
-| Precision      |        BF16 |
-| Max length     |         510 |
-| Window overlap |         256 |
 

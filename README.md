@@ -1,6 +1,6 @@
 # S2NER
 
-**S2NER**은 **조선왕조실록(Joseon Wangjo Sillok)**과 **승정원일기(Seungjeongwon Ilgi)**를 대상으로 한 고전 한문 문자 단위 개체명 인식(NER) baseline입니다.
+**S2NER**은 조선왕조실록(Joseon Wangjo **S**illok)과 승정원일기(**S**eungjeongwon Ilgi)를 대상으로 한 고전 한문 문자 단위 개체명 인식(NER) baseline입니다.
 
 * Entity types: `PER`, `LOC`, `BOOK`
 

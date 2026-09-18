@@ -27,7 +27,7 @@ for gpu in "${GPU_IDS[@]}"; do
   fi
   USED[$gpu]=1
 done
-for file in Sillok_train_final.jsonl Sillok_dev_final.jsonl SJW.jsonl; do
+for file in Sillok_train.jsonl Sillok_dev.jsonl SJW_test.jsonl; do
   test -f "$DATA_DIR/$file" || { echo "Missing $DATA_DIR/$file" >&2; exit 1; }
 done
 export CUDA_VISIBLE_DEVICES="$GPUS"
@@ -49,9 +49,9 @@ for model in "${MODELS[@]}"; do
   fi
   cmd=("$PYTHON_BIN" -m torch.distributed.run --standalone --nnodes=1 --nproc_per_node=4
     "$SCRIPT_DIR/train.py" --model "$model"
-    --train_jsonl "$DATA_DIR/Sillok_train_final.jsonl"
-    --dev_jsonl "$DATA_DIR/Sillok_dev_final.jsonl"
-    --test_jsonl "$DATA_DIR/SJW.jsonl"
+    --train_jsonl "$DATA_DIR/Sillok_train.jsonl"
+    --dev_jsonl "$DATA_DIR/Sillok_dev.jsonl"
+    --test_jsonl "$DATA_DIR/SJW_test.jsonl"
     --output_dir "$OUTPUT_ROOT/${model}_crf"
     --lr 6e-5 --epochs 4 --train_batch_size 128 --eval_batch_size 512
     --gradient_accumulation_steps 1 --precision bf16 --seed 42

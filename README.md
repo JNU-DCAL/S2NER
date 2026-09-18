@@ -15,7 +15,7 @@ S2NER/
 │   ├── evaluate.py
 │   ├── inference.py
 │   └── run_*.sh
-├── S2NERdictionaries/
+├── dictionaries/
 │   ├── PER/
 │   │   ├── PER_blocklist.csv
 │   │   ├── PER_person.csv
@@ -94,9 +94,9 @@ SJW_test.jsonl
 ## 🚀 Quick Start
 
 ```bash
-source .venv/bin/activate
+source .S2NER/bin/activate
 
-export PYTHON_BIN="$PWD/.venv/bin/python"
+export PYTHON_BIN="$PWD/.S2NER/bin/python"
 export DATA_DIR="$PWD/data/retag"
 export OUTPUT_ROOT="$PWD/outputs/retag"
 export GPUS="0,1,2,3"

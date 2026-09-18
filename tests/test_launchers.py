@@ -14,7 +14,7 @@ class LauncherTests(unittest.TestCase):
             root = Path(directory)
             data = root / "data with spaces"
             data.mkdir()
-            for name in ("SJW.jsonl", "Sillok_train_final.jsonl", "Sillok_dev_final.jsonl"):
+            for name in ("SJW_test.jsonl", "Sillok_train.jsonl", "Sillok_dev.jsonl"):
                 (data / name).touch()
             env = dict(os.environ, DATA_DIR=str(data), GPUS="0,1,2,3", DRY_RUN="1",
                        OUTPUT_ROOT=str(root / "outputs"), PYTHON_BIN="/unused/python with spaces")
@@ -36,7 +36,7 @@ class LauncherTests(unittest.TestCase):
                         for key, value in (("--lr", "6e-5"), ("--epochs", "4"),
                                            ("--train_batch_size", "128"), ("--precision", "bf16"),
                                            ("--seen_reference", "train+dev"),
-                                           ("--test_jsonl", str(data / "SJW.jsonl"))):
+                                           ("--test_jsonl", str(data / "SJW_test.jsonl")):
                             self.assertEqual(command[command.index(key) + 1], value)
                         self.assertIn("--nproc_per_node=4", command)
                         self.assertEqual(command[0], env["PYTHON_BIN"])
